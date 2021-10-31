@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="heading" transform="translate(-67 -644)">
+    <text id="heading-2" data-name="heading" transform="translate(67 686)" font-size="14" font-family="Metropolis-Regular, Metropolis"><tspan x="0" y="11">Heading</tspan></text>
+    <path id="ic_format_shapes_24px" d="M39,11.364V1H28.636V4.455H11.364V1H1V11.364H4.455V28.636H1V39H11.364V35.545H28.636V39H39V28.636H35.545V11.364ZM4.455,4.455H7.909V7.909H4.455ZM7.909,35.545H4.455V32.091H7.909Zm20.727-3.455H11.364V28.636H7.909V11.364h3.455V7.909H28.636v3.455h3.455V28.636H28.636Zm6.909,3.455H32.091V32.091h3.455ZM32.091,7.909V4.455h3.455V7.909Zm-9.1,15.545H16.96L15.7,26.909H12.9l5.873-15.545h2.418l5.89,15.545H24.266l-1.278-3.455Zm-5.251-2.176h4.508L20,14.663l-2.263,6.615Z" transform="translate(75 643)"/>
+  </g>
+</svg>
