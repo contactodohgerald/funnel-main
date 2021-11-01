@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-xanta_area',
-        'version' => 'dev-xanta_area',
+        'pretty_version' => 'dev-development',
+        'version' => 'dev-development',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0904df4cbf8c39f756c60692fe03a7fb0182a751',
+        'reference' => '9a6cc12c0e07adf8b89607915459a98f4e103c2b',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -404,12 +404,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-xanta_area',
-            'version' => 'dev-xanta_area',
+            'pretty_version' => 'dev-development',
+            'version' => 'dev-development',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0904df4cbf8c39f756c60692fe03a7fb0182a751',
+            'reference' => '9a6cc12c0e07adf8b89607915459a98f4e103c2b',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

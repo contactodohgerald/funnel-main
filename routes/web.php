@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.pages.landing');
+});
+Route::get('/login', function () {
+    return view('front.pages.users.login');
+});
+Route::get('/ecoverCreator', function () {
+    return view('front.pages.ebook.ecoverCreator');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+// require __DIR__ . '/auth.php';
