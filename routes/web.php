@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Ebook\EbookController;
+use App\Http\Controllers\Ecover\EcoverController;
+use App\Http\Controllers\Funnel\FunnelController;
+use App\Http\Controllers\Library\LibraryController;
+use App\Http\Controllers\Others\ConversionToolController;
+use App\Http\Controllers\Others\UnlimitedVersionController;
+use App\Http\Controllers\Product\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +21,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
+Route::get('/', [DashboardController::class, 'landing'])->name('landing');
+
+Route::get('/login', function () {
+    return view('front.pages.users.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('loggedIn.index');
-})->middleware(['auth'])->name('dashboard');
+//ecoverCreator
+Route::get('/ecoverCreator', [EcoverController::class, 'ecoverCreator'])->name('ecoverCreator');
 
-require __DIR__.'/auth.php';
+//ebookCreator
+Route::get('/ebookCreator', [EbookController::class, 'ebookCreator'])->name('ebookCreator');
+
+//library
+Route::get('/library', [LibraryController::class, 'library'])->name('library');
+
+//product
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
+
+//funnel
+Route::get('/funnel', [FunnelController::class, 'funnel'])->name('funnel');
+Route::get('/dfyFunnel', [FunnelController::class, 'dfyFunnel'])->name('dfyFunnel');
+
+//others
+Route::get('/version', [UnlimitedVersionController::class, 'unlimitedVersion'])->name('unlimitedVersion');
+Route::get('/conversionTools', [ConversionToolController::class, 'conversionTools'])->name('conversionTools');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+// require __DIR__ . '/auth.php';

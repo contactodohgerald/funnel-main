@@ -16,7 +16,8 @@ class CreateEbookHeaderOrFooterSettingsTable extends Migration
         Schema::create('ebook_header_or_footer_settings', function (Blueprint $table) {
             $table->id();
             $table->string('unique_id')->unique();
-            $table->string('ebook_unique_id');
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('ebook_id');
             $table->string('type')->nullable();
             $table->text('text')->nullable();
             $table->string('link')->nullable();
@@ -25,7 +26,8 @@ class CreateEbookHeaderOrFooterSettingsTable extends Migration
             $table->string('text_size')->nullable();
             $table->string('font_family')->nullable();
 
-            $table->softDeletes('deleted_at',6)->nullable();
+            $table->string('status')->default('false');
+            $table->softDeletes('deleted_at', 6)->nullable();
             $table->timestamps();
         });
     }
