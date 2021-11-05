@@ -1,0 +1,153 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?449985d0d8381effa136688e3bf77480") format("truetype"),
+url("./flaticon.woff?449985d0d8381effa136688e3bf77480") format("woff"),
+url("./flaticon.woff2?449985d0d8381effa136688e3bf77480") format("woff2"),
+url("./flaticon.eot?449985d0d8381effa136688e3bf77480#iefix") format("embedded-opentype"),
+url("./flaticon.svg?449985d0d8381effa136688e3bf77480#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "dashboard": "\f101",
+    "bell": "\f102",
+    "book-of-black-cover-closed": "\f103",
+    "book-of-black-cover": "\f104",
+    "book": "\f105",
+    "pile-of-paper": "\f106",
+    "block": "\f107",
+    "filter": "\f108",
+    "funnel": "\f109",
+    "infinite-mathematical-symbol": "\f10a",
+    "paper-plane": "\f10b",
+    "giftbox": "\f10c",
+    "graduation-hat": "\f10d",
+    "question": "\f10e",
+    "speedometer": "\f10f",
+    "rocket": "\f110",
+    "bookmark-tag": "\f111",
+    "add": "\f112",
+    "left-bars": "\f113",
+    "menu": "\f114",
+    "web": "\f115",
+    "image-gallery": "\f116",
+    "plus": "\f117",
+    "search": "\f118",
+    "information-button": "\f119",
+    "exit": "\f11a",
+    "open-book": "\f11b",
+    "check-mark": "\f11c",
+    "workspace": "\f11d",
+    "cancel": "\f11e",
+    "left-arrow": "\f11f",
+    "google-glass-logo": "\f120",
+);
+
+.flaticon-dashboard:before {
+    content: map-get($flaticon-map, "dashboard");
+}
+.flaticon-bell:before {
+    content: map-get($flaticon-map, "bell");
+}
+.flaticon-book-of-black-cover-closed:before {
+    content: map-get($flaticon-map, "book-of-black-cover-closed");
+}
+.flaticon-book-of-black-cover:before {
+    content: map-get($flaticon-map, "book-of-black-cover");
+}
+.flaticon-book:before {
+    content: map-get($flaticon-map, "book");
+}
+.flaticon-pile-of-paper:before {
+    content: map-get($flaticon-map, "pile-of-paper");
+}
+.flaticon-block:before {
+    content: map-get($flaticon-map, "block");
+}
+.flaticon-filter:before {
+    content: map-get($flaticon-map, "filter");
+}
+.flaticon-funnel:before {
+    content: map-get($flaticon-map, "funnel");
+}
+.flaticon-infinite-mathematical-symbol:before {
+    content: map-get($flaticon-map, "infinite-mathematical-symbol");
+}
+.flaticon-paper-plane:before {
+    content: map-get($flaticon-map, "paper-plane");
+}
+.flaticon-giftbox:before {
+    content: map-get($flaticon-map, "giftbox");
+}
+.flaticon-graduation-hat:before {
+    content: map-get($flaticon-map, "graduation-hat");
+}
+.flaticon-question:before {
+    content: map-get($flaticon-map, "question");
+}
+.flaticon-speedometer:before {
+    content: map-get($flaticon-map, "speedometer");
+}
+.flaticon-rocket:before {
+    content: map-get($flaticon-map, "rocket");
+}
+.flaticon-bookmark-tag:before {
+    content: map-get($flaticon-map, "bookmark-tag");
+}
+.flaticon-add:before {
+    content: map-get($flaticon-map, "add");
+}
+.flaticon-left-bars:before {
+    content: map-get($flaticon-map, "left-bars");
+}
+.flaticon-menu:before {
+    content: map-get($flaticon-map, "menu");
+}
+.flaticon-web:before {
+    content: map-get($flaticon-map, "web");
+}
+.flaticon-image-gallery:before {
+    content: map-get($flaticon-map, "image-gallery");
+}
+.flaticon-plus:before {
+    content: map-get($flaticon-map, "plus");
+}
+.flaticon-search:before {
+    content: map-get($flaticon-map, "search");
+}
+.flaticon-information-button:before {
+    content: map-get($flaticon-map, "information-button");
+}
+.flaticon-exit:before {
+    content: map-get($flaticon-map, "exit");
+}
+.flaticon-open-book:before {
+    content: map-get($flaticon-map, "open-book");
+}
+.flaticon-check-mark:before {
+    content: map-get($flaticon-map, "check-mark");
+}
+.flaticon-workspace:before {
+    content: map-get($flaticon-map, "workspace");
+}
+.flaticon-cancel:before {
+    content: map-get($flaticon-map, "cancel");
+}
+.flaticon-left-arrow:before {
+    content: map-get($flaticon-map, "left-arrow");
+}
+.flaticon-google-glass-logo:before {
+    content: map-get($flaticon-map, "google-glass-logo");
+}

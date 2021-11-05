@@ -23,11 +23,11 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('subscriber');
             $table->string('profile_picture')->default('avatar.png');
             $table->string('gender')->nullable();
-            $table->string('status')->default('active');
+            $table->string('status')->default('false');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            $table->softDeletes('deleted_at',6)->nullable();
+            $table->softDeletes('deleted_at', 6)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,59 +1,63 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@php 
+$pageTitle = 'Register Page'
+@endphp
+@include('layouts.head')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+<div class="container-fluid px-0">
+    <div class="flex-main-wrap">
+        <div class="art-section">
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+        </div>
+        <div class="form-section">
+            <div class="login-form-wrap">
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <div class="d-flex justify-content-between mb-4">
+                    <h1 class="title">
+                        Sign Up
+                    </h1>
+                    <a class="opposite-link" href="{{ route('login') }}">Sign In</a>
+                </div>
+
+                <button class="btn btn-block btn-google">
+                    <i class="flaticon-google-glass-logo icons"></i>
+                    Sign Up with Google
+                </button>
+
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" class="form-control input-signin" type="text" name="name" :value="old('name')" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input id="email" class="form-control input-signin" type="email" name="email" :value="old('email')" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" class="form-control input-signin" type="password" name="password" required autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation">Confirm Password</label>
+                        <input id="password_confirmation" class="form-control input-signin" type="password" name="password_confirmation" required>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-login"> Register </button>
+                </form>
+
             </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+        </div>
+    </div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+</div>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@include('layouts.e_script')

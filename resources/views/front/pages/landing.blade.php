@@ -1,4 +1,5 @@
 
+@php $pageTitle = 'Dashboard' @endphp
 @extends('front.layouts.design')
 
     @section('extra_css')   

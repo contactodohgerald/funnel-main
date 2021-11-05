@@ -1,7 +1,9 @@
+<?php $url = url()->current(); //dd($url); "http://127.0.0.1:8000/admin/allBanner" ?>
+<?php if (preg_match("/category/i", $url)){ ?> style="display: block;" <?php } ?>
 <div class="side-bar">
     <nav class="nav flex-column nav-wrap">
         <li class="nav-item">
-            <a class="nav-link active" href="index.html">
+            <a class="nav-link {{ Route::currentRouteNamed('landing') ? 'active' : '' }}" href="{{ route('landing') }}">
                 <i class="flaticon-menu icons side-nav-icon dashboard"></i>
                 <span class="nav-text">
                     Dashboard
@@ -10,7 +12,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="pages/e-cover.html">
+            <a class="nav-link {{ Route::currentRouteNamed('ecoverCreator') ? 'active' : '' }}" href="{{ route('ecoverCreator') }}">
                 <i class="flaticon-book-of-black-cover icons side-nav-icon ecover"></i>
                 <span class="nav-text">
                     Ecover Creator
@@ -18,15 +20,16 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/create-ebook-chapter.html">
+            <a class="nav-link {{ Route::currentRouteNamed('ebookCreator') ? 'active' : '' }}" href="{{ route('ebookCreator') }}">
                 <i class="flaticon-book icons side-nav-icon ebook"></i>
                 <span class="nav-text">
                     Create Ebook
                 </span>
             </a>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="pages/library.html">
+            <a class="nav-link {{ Route::currentRouteNamed('library') ? 'active' : '' }}" href="{{ route('library') }}">
                 <i class="flaticon-pile-of-paper icons side-nav-icon library"></i>
                 <span class="nav-text">
                     My Library
@@ -34,7 +37,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/product.html">
+            <a class="nav-link @if(Route::currentRouteNamed('product') || Route::currentRouteNamed('addProduct')) active @else '' @endif" href="{{ route('product') }}">
                 <i class="flaticon-block icons side-nav-icon product"></i>
                 <span class="nav-text">
                     My Product
@@ -42,7 +45,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/funnel.html">
+            <a class="nav-link {{ Route::currentRouteNamed('funnel') ? 'active' : '' }}" href="{{ route('funnel') }}">
                 <i class="flaticon-filter icons side-nav-icon funnel"></i>
                 <span class="nav-text">
                     My Funnels
@@ -50,7 +53,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/dfy-funnel.html">
+            <a class="nav-link {{ Route::currentRouteNamed('dfyFunnel') ? 'active' : '' }}" href="{{ route('dfyFunnel') }}">
                 <i class="flaticon-funnel icons side-nav-icon dfy-funnel"></i>
                 <span class="nav-text">
                     DFY Funnels
@@ -58,7 +61,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/version.html">
+            <a class="nav-link {{ Route::currentRouteNamed('unlimitedVersion') ? 'active' : '' }}" href="{{ route('unlimitedVersion') }}">
                 <i class="flaticon-infinite-mathematical-symbol icons side-nav-icon version"></i>
                 <span class="nav-text">
                     Unlimited Versions
@@ -66,7 +69,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/conversation-tool-html">
+            <a class="nav-link {{ Route::currentRouteNamed('conversionTools') ? 'active' : '' }}" href="{{ route('conversionTools') }}">
                 <i class="flaticon-paper-plane icons side-nav-icon conversion"></i>
                 <span class="nav-text">
                     Conversion Tools

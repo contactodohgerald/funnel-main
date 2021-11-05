@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="172" height="49" viewBox="0 0 172 49">
+  <g id="Group_217" data-name="Group 217" transform="translate(-29 -39)">
+    <g id="Group_211" data-name="Group 211" transform="translate(-20)">
+      <g id="Group_36" data-name="Group 36" transform="translate(3 6.879)">
+        <rect id="Rectangle_27" data-name="Rectangle 27" width="51" height="49" rx="24.5" transform="translate(46 32.121)" fill="#fff"/>
+      </g>
+      <g id="Group_34" data-name="Group 34" transform="translate(-2938.951 288)">
+        <g id="Group_33" data-name="Group 33" transform="translate(3000.951 -238)">
+          <path id="Path_118" data-name="Path 118" d="M474.819,482.756l3.161,0,9.775,0A4.262,4.262,0,0,1,492,487h0a4.26,4.26,0,0,1-4.248,4.248l-8.108,0a2.672,2.672,0,0,1-1.127-.144c-5.717-1.612-6.791-4.746-4.313-8.131.2-.276.3-.215.612-.215Z" transform="translate(-466.68 -464.917)" fill="#0cf" fill-rule="evenodd"/>
+          <path id="Path_120" data-name="Path 120" d="M451.051,407.271l7.234-11.431a4.571,4.571,0,0,0-1.541-6.257h0a4.571,4.571,0,0,0-6.259,1.541l-3.328,5.506c-2.134,3.53-4.288,6.951-6.345,10.536a6.1,6.1,0,0,0-.855,3.146,5.211,5.211,0,0,0,4.93,4.934l11.657.015c-6.122-1.551-7.582-4.657-5.438-8.08l-.055.089Zm5.493,7.991-11.657-.015Z" transform="translate(-439.951 -388.929)" fill="#0dadff" fill-rule="evenodd"/>
+          <circle id="Ellipse_20" data-name="Ellipse 20" cx="6.869" cy="6.869" r="6.869" transform="translate(9.933 3.064)" fill="#ff666b"/>
+        </g>
+      </g>
+    </g>
+    <text id="CopyKart" transform="translate(93 71)" fill="#2263de" font-size="22" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">CopyKart</tspan></text>
+  </g>
+</svg>

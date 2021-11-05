@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <filter id="Rectangle_234" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="shapes_icon" data-name="shapes icon" transform="translate(-74 -658)">
+    <g transform="matrix(1, 0, 0, 1, 74, 658)" filter="url(#Rectangle_234)">
+      <rect id="Rectangle_234-2" data-name="Rectangle 234" width="30" height="30" rx="4" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <path id="XMLID_310_" d="M14.507,19.285a.779.779,0,0,1-.4-.109L10.012,16.5,5.918,19.176a.743.743,0,0,1-.819-.018.759.759,0,0,1-.273-.782l1.292-4.549L2.261,10.569a.733.733,0,0,1-.218-.782.745.745,0,0,1,.637-.509l4.6-.328L9.357,4.419a.722.722,0,0,1,1.31,0l2.074,4.531,4.6.328a.719.719,0,0,1,.637.509.752.752,0,0,1-.218.782l-3.839,3.239,1.292,4.549a.7.7,0,0,1-.273.782A.74.74,0,0,1,14.507,19.285Zm-4.494-4.367a.779.779,0,0,1,.4.109L13.288,16.9,12.4,13.753a.727.727,0,0,1,.237-.746l2.82-2.384-3.239-.255A.758.758,0,0,1,11.6,9.95L10.012,6.475,8.429,9.95a.733.733,0,0,1-.619.419l-3.239.237,2.82,2.384a.727.727,0,0,1,.237.746L6.737,16.9l2.875-1.856A.655.655,0,0,1,10.012,14.918Z" transform="translate(87.988 667.355)" fill="#464646"/>
+  </g>
+</svg>

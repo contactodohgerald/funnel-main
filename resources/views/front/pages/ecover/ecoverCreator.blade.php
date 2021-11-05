@@ -1,4 +1,4 @@
-
+@php $pageTitle = 'Ecover Creator' @endphp
 @extends('front.layouts.design')
 
 @section('extra_css')   
