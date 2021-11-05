@@ -160,8 +160,8 @@
                     <div class="col-4">
                         <div class="form-group mb-0">
                             <label for="">Name</label>
-                            <input type="text" class="form-control input-bordered no-shadow slide-input" name="" id=""
-                                placeholder="">
+                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" name="" id="" placeholder="">
+                            
                         </div>
                     </div>
                     <div class="col-8">
@@ -171,7 +171,7 @@
                                 <div class="col-6">
                                     <div class="edit-input-wrap input-bordered">
                                         <label for="">width</label>
-                                        <input type="number" class="form-control no-shadow" name="" id="" placeholder=""
+                                        <input type="number" class="form-control no-shadow" name="width" id="" placeholder=""
                                             min="0">
                                         <span class="dim-text">px</span>
                                     </div>
@@ -179,7 +179,7 @@
                                 <div class="col-6">
                                     <div class="edit-input-wrap input-bordered">
                                         <label for="">height</label>
-                                        <input type="number" class="form-control no-shadow" name="" id="" placeholder=""
+                                        <input type="number" class="form-control no-shadow" name="height" id="" placeholder=""
                                             min="0">
                                         <span class="dim-text">px</span>
                                     </div>

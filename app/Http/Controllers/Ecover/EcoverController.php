@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Ecover;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ebook\Ecover;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EcoverController extends Controller
 {
@@ -22,9 +24,39 @@ class EcoverController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ecoverCreatorPost(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $rules = array(
+            'name' => 'required|string',
+            'height'   => 'required',
+            'width'   => 'required',
+        );
+        $messages = [
+            'name.required' => '* This field is required',
+            'name.string'   => 'Invalid Characters',
+
+            'height.required' => '* This field is required',
+            'width.required' => '* This field is required',
+        ];
+
+
+        // validate against inputs frm d form
+        $validator = Validator::make($data, $rules, $messages);
+
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator);
+        } else {
+
+            $ecover = new Ecover();
+            $ecover->title = $data['title'];
+            $ecover->height = $data['height'];
+            $ecover->width = $data['width'];
+            $ecover->save();
+
+            return back()->with('success', 'Ecover Created Successfully!');
+        }
     }
 
     /**
