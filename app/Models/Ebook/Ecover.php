@@ -14,6 +14,14 @@ class Ecover extends Model
     // public $incrementing = false;
     // protected $keyType = 'string';  
 
+    public function createdBy(){
+        return $this->belongsTo('App\Models\User', 'created_by');
+    }  
+    
+    public function dimensions(){
+        return $this->belongsTo('App\Models\Ebook\Dimension', 'dimension_id');
+    } 
+
     function getAllEcover($condition, $id = 'id', $desc = 'desc')
     {
         return Ecover::where($condition)->orderBy($id, $desc)->get();

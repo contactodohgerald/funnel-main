@@ -4,11 +4,23 @@ namespace App\Http\Controllers\Ecover;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ebook\Ecover;
+use App\Models\Ebook\Dimension;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Exception;
+use Carbon\Carbon;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
+use App\Traits\Generics;
+
 
 class EcoverController extends Controller
 {
+    use Generics, MediaAlly;
+
+    function __construct(Dimension $dimension, Ecover $ecover){
+        $this->dimension = $dimension;
+        $this->ecover = $ecover;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +28,25 @@ class EcoverController extends Controller
      */
     public function ecoverCreator()
     {
-        return view('front.pages.ecover.ecoverCreator');
+        //get list of the available ecovers
+
+        $ecover = $this->ecover->getAllEcover([
+            ['status', 'true'],
+        ]);
+        foreach($ecover as $each_ecover){
+            $each_ecover->createdBy;
+            $each_ecover->dimensions;
+        }
+
+        $data = [
+            'ecover'=>$ecover,
+        ];
+        return view('front.pages.ecover.ecoverCreator', $data);
+    } 
+    
+    public function editorPage()
+    {
+        return view('front.pages.ecover.editor');
     }
 
     /**
@@ -24,24 +54,16 @@ class EcoverController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ecoverCreatorPost(Request $request)
-    {
+    public function ecoverCreatorPost(Request $request){
         $data = $request->all();
-
+        
         $rules = array(
             'name' => 'required|string',
-            'height'   => 'required',
-            'width'   => 'required',
         );
         $messages = [
             'name.required' => '* This field is required',
             'name.string'   => 'Invalid Characters',
-
-            'height.required' => '* This field is required',
-            'width.required' => '* This field is required',
         ];
-
-
         // validate against inputs frm d form
         $validator = Validator::make($data, $rules, $messages);
 
@@ -49,13 +71,38 @@ class EcoverController extends Controller
             return back()->withInput()->withErrors($validator);
         } else {
 
-            $ecover = new Ecover();
-            $ecover->title = $data['title'];
-            $ecover->height = $data['height'];
-            $ecover->width = $data['width'];
-            $ecover->save();
+            // geting the dimension details to insert the id into the Ecover model
+            $type_id = $this->dimension->getSingleDimension([
+                ['type', $data['type_value']],
+            ]);
+          
+            if($type_id != null){
 
-            return back()->with('success', 'Ecover Created Successfully!');
+                 // addind the image to cloudinary
+                if ($request->hasFile('thumbnail')) {
+                    // Uploading an image file to cloudinary and resizing the image to a resolution specified by the dimension parameters with one line of code
+                    $thumbnailUrl = cloudinary()->upload($request->file('thumbnail')->getRealPath(), [
+                        'folder' => 'uploads',
+                        'transformation' => [
+                            'width' => $type_id->width,
+                            'height' => $type_id->height
+                        ]
+                    ])->getSecurePath();
+    
+                }
+
+                $ecover = new Ecover();
+                $ecover->unique_id = $this->createUniqueId('ecovers', 'unique_id');
+                $ecover->title = $data['name'];
+                $ecover->dimension_id = $type_id->id;
+                $ecover->created_by = 1;
+                $ecover->thumbnail = $thumbnailUrl;
+                $ecover->save();
+
+                return redirect('/ecoverCreator')->with('success', 'Ecover Created Successfully!');
+            }
+
+           
         }
     }
 

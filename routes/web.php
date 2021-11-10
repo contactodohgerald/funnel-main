@@ -29,9 +29,13 @@ Route::get('/login', function () {
 
 //ecoverCreator
 Route::get('/ecoverCreator', [EcoverController::class, 'ecoverCreator'])->name('ecoverCreator');
+Route::get('/editorPage', [EcoverController::class, 'editorPage'])->name('editorPage');
+Route::post('/createEcover', [EcoverController::class, 'ecoverCreatorPost'])->name('createEcover');
 
 //ebookCreator
 Route::get('/ebookCreator', [EbookController::class, 'ebookCreator'])->name('ebookCreator');
+Route::get('/article-result', [EbookController::class, 'returnedArticle'])->name('article-result');
+Route::post('/pullArticles', [EbookController::class, 'pullArticlesForView'])->name('pullArticles');
 
 //library
 Route::get('/library', [LibraryController::class, 'library'])->name('library');
