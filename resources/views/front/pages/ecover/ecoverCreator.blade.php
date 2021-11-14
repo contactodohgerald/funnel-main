@@ -146,7 +146,7 @@
                     <div class="col-4">
                         <div class="form-group mb-0">
                             <label for="">Name</label>
-                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" name="" id="" placeholder="">
+                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" id="" placeholder="">
                             <input type="hidden" type="text" value="flat_cover" name="type_value">
                             
                         </div>

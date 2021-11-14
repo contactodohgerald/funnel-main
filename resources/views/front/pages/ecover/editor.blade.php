@@ -19,7 +19,7 @@
                     <div class="col-4 offset-4">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="name" class="form-control" name="name" id="title">
+                            <input type="text" name="title" class="form-control" id="title">
                             <input type="hidden" type="text" value="flat_cover" name="type_value">
                         </div>
                         <div class="form-group">
