@@ -35,8 +35,9 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '746bb4ebbdf3585f3e2e85fffd4a5f43' => __DIR__ . '/..' . '/cloudinary-labs/cloudinary-laravel/src/Support/helpers.php',
+        'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -92,6 +93,7 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         ),
         'R' => 
         array (
+            'RealRashid\\SweetAlert\\' => 22,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -326,6 +328,10 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'RealRashid\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/realrashid/sweet-alert/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -585,6 +591,7 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Traits\\EbookHandler' => __DIR__ . '/../..' . '/app/Traits/EbookHandler.php',
         'App\\Traits\\Generics' => __DIR__ . '/../..' . '/app/Traits/Generics.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
@@ -1201,6 +1208,8 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'Cloudinary\\Transformation\\ResizeQualifierTrait' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Resize/Parameter/ResizeQualifierTrait.php',
         'Cloudinary\\Transformation\\ResizeTrait' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Resize/ResizeTrait.php',
         'Cloudinary\\Transformation\\Rotate' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Rotation/Rotate.php',
+        'Cloudinary\\Transformation\\RotationDegreeInterface' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Rotation/RotationDegreeInterface.php',
+        'Cloudinary\\Transformation\\RotationModeInterface' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Rotation/RotationModeInterface.php',
         'Cloudinary\\Transformation\\RoundCorners' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Shape/RoundCorners.php',
         'Cloudinary\\Transformation\\Scale' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Resize/Scale/Scale.php',
         'Cloudinary\\Transformation\\ScaleTrait' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Transformation/Resize/Scale/ScaleTrait.php',
@@ -1305,6 +1314,7 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\DimensionsSeeder' => __DIR__ . '/../..' . '/database/seeders/DimensionsSeeder.php',
         'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -3170,6 +3180,7 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'Illuminate\\Support\\HtmlString' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/HtmlString.php',
         'Illuminate\\Support\\InteractsWithTime' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/InteractsWithTime.php',
         'Illuminate\\Support\\ItemNotFoundException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/ItemNotFoundException.php',
+        'Illuminate\\Support\\Js' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Js.php',
         'Illuminate\\Support\\LazyCollection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/LazyCollection.php',
         'Illuminate\\Support\\Manager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Manager.php',
         'Illuminate\\Support\\MessageBag' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/MessageBag.php',
@@ -5053,6 +5064,13 @@ class ComposerStaticInit694afe27ede2f4a955c26ba4dd35e510
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RealRashid\\SweetAlert\\Console\\PublishCommand' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Console/PublishCommand.php',
+        'RealRashid\\SweetAlert\\Facades\\Alert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Facades/Alert.php',
+        'RealRashid\\SweetAlert\\Storage\\AlertSessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/AlertSessionStore.php',
+        'RealRashid\\SweetAlert\\Storage\\SessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/SessionStore.php',
+        'RealRashid\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/SweetAlertServiceProvider.php',
+        'RealRashid\\SweetAlert\\ToSweetAlert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/ToSweetAlert.php',
+        'RealRashid\\SweetAlert\\Toaster' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Toaster.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',

@@ -2,12 +2,13 @@
 
 namespace App\Traits;
 
-trait EbookHandler{
+trait EbookHandler
+{
 
-    private $APIKey = '3c84276a0d254cac86b008ab30918286'; 
+    private $APIKey = '3c84276a0d254cac86b008ab30918286';
 
-    function fetchArticles($query, $page_size, $page){
-
+    function fetchArticles($query, $page_size, $page)
+    {
         $api_key = $this->APIKey;
 
         $curl = curl_init();
@@ -34,8 +35,5 @@ trait EbookHandler{
         $decoded_response = json_decode($response, true);
 
         return $decoded_response;
-
     }
-
-
 }

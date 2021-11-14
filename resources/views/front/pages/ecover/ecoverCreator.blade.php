@@ -27,6 +27,11 @@
     :checked + label::before {
         background-image: url(front/image/place-holder.jpg);
     }
+
+    .table-ecover th{
+        font-weight: 900;
+        color: #000;
+    }
 </style>
 @endsection
 
@@ -68,18 +73,18 @@
             <table class="table no-border table-ecover mt-3">
                 <thead>
                     <tr>
-                        <th class="text-left">NAME</th>
-                        <th>THUMBNAIL</th>
-                        <th>DOWNLOAD</th>
-                        <th>CREATED BY</th>
-                        <th>UPDATED AT</th>
-                        <th>ACTIONS</th>
+                        <th class="text-left text-dark">NAME</th>
+                        <th class="text-dark">THUMBNAIL</th>
+                        <th class="text-dark">DOWNLOAD</th>
+                        <th class="text-dark">CREATED BY</th>
+                        <th class="text-dark">UPDATED AT</th>
+                        <th class="text-dark">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if (count($ecover) > 0)
+                    @if (count($ecovers) > 0)
                         @php $counter = 1;  @endphp
-                        @foreach ($ecover as $each_ecover)
+                        @foreach ($ecovers as $each_ecover)
                         <tr>
                             <td scope="row">{{ $each_ecover->title }}</td>
                             <td class="text-center">
@@ -98,7 +103,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center">{{ $each_ecover->createdBy->name }}</td>
+                            <td class="text-center">{{ isset($each_ecover->createdBy)  ? $each_ecover->createdBy->name  : '' }}</td>
                             <td class="text-center">{{ $each_ecover->updated_at->diffForHumans() }}</td>
                             <td class="text-center">
                                 <div class="dropdown">
@@ -146,7 +151,7 @@
                     <div class="col-4">
                         <div class="form-group mb-0">
                             <label for="">Name</label>
-                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" name="" id="" placeholder="">
+                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" id="" placeholder="">
                             <input type="hidden" type="text" value="flat_cover" name="type_value">
                             
                         </div>

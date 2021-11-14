@@ -13,22 +13,22 @@
             Page Editor
         </h5>
         <div class="edit-forms-wrap">
-            <form action="{{ route('createEcover') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('ecoverCreatorPost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-4 offset-4">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="name" class="form-control" name="name" id="title">
+                            <input type="text" name="title" class="form-control" id="title">
                             <input type="hidden" type="text" value="flat_cover" name="type_value">
                         </div>
                         <div class="form-group">
-                            <label for="with">Width</label>
-                            <input type="text" class="form-control" value="1320" id="with" disabled>
+                            <label for="width">Width</label>
+                            <input type="text" class="form-control" value="1320" id="width" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="heigth">Heigth</label>
-                            <input type="text" class="form-control" value="720" id="heigth" disabled>
+                            <label for="height">Heigth</label>
+                            <input type="text" class="form-control" value="720" id="height" disabled>
                         </div>
 
                         <div class="form-group">

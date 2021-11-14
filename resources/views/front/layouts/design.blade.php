@@ -48,6 +48,7 @@
     <script src="{{asset('/front/js/main.js')}}"></script>
     
     <script src="/front/js/editor-config.js"></script>
+    @include('sweetalert::alert')
     @yield('extra_js')
 </body>
 

@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find" type="submit" id="find_article" name="submit">Find</button>
+                                <button class="btn btn-find" type="submit" id="find_article">Find</button>
                             </div>
                         </form>
                     </div>

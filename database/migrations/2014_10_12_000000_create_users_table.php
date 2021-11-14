@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('unique_id')->unique();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('slug')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('role')->default('subscriber');
             $table->string('profile_picture')->default('avatar.png');

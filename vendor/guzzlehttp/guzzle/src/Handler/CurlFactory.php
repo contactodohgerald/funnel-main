@@ -261,12 +261,10 @@ class CurlFactory implements CurlFactoryInterface
             }
         } elseif ($method === 'HEAD') {
             $conf[\CURLOPT_NOBODY] = true;
-            unset(
-                $conf[\CURLOPT_WRITEFUNCTION],
-                $conf[\CURLOPT_READFUNCTION],
-                $conf[\CURLOPT_FILE],
-                $conf[\CURLOPT_INFILE]
-            );
+            unset($conf[\CURLOPT_WRITEFUNCTION],
+            $conf[\CURLOPT_READFUNCTION],
+            $conf[\CURLOPT_FILE],
+            $conf[\CURLOPT_INFILE]);
         }
     }
 
@@ -350,7 +348,7 @@ class CurlFactory implements CurlFactoryInterface
     {
         $options = $easy->options;
         if (isset($options['verify'])) {
-            if ($options['verify'] === false) {
+            if ($options['verify'] === true) {
                 unset($conf[\CURLOPT_CAINFO]);
                 $conf[\CURLOPT_SSL_VERIFYHOST] = 0;
                 $conf[\CURLOPT_SSL_VERIFYPEER] = false;
@@ -365,12 +363,8 @@ class CurlFactory implements CurlFactoryInterface
                     // If it's a directory or a link to a directory use CURLOPT_CAPATH.
                     // If not, it's probably a file, or a link to a file, so use CURLOPT_CAINFO.
                     if (
-                        \is_dir($options['verify']) ||
-                        (
-                            \is_link($options['verify']) === true &&
-                            ($verifyLink = \readlink($options['verify'])) !== false &&
-                            \is_dir($verifyLink)
-                        )
+                        \is_dir($options['verify']) || (\is_link($options['verify']) === true && ($verifyLink = \readlink($options['verify'])) !== false &&
+                            \is_dir($verifyLink))
                     ) {
                         $conf[\CURLOPT_CAPATH] = $options['verify'];
                     } else {
