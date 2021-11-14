@@ -2,6 +2,37 @@
 @extends('front.layouts.design')
 
 @section('extra_css')   
+<style>
+
+    .img-box{
+        border: 5px solid #e2e2e2;
+    }
+
+    .img-box label{
+        display: inline !important;
+    }
+
+    input[type=radio] + label {
+
+    }
+
+    .class_to_add {
+        border: 5px solid #a72a2a;
+    }
+
+    label::before {
+        background-image: url(front/image/2nd aug Funnel project pdf.png);
+    }
+
+    :checked + label::before {
+        background-image: url(front/image/place-holder.jpg);
+    }
+
+    .table-ecover th{
+        font-weight: 900;
+        color: #000;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -38,104 +69,65 @@
                     </div>
                 </div>
             </div>
+            @include('partials.message')
             <table class="table no-border table-ecover mt-3">
                 <thead>
                     <tr>
-                        <th class="text-left">NAME</th>
-                        <th>THUMBNAIL</th>
-                        <th>DOWNLOAD</th>
-                        <th>CREATED BY</th>
-                        <th>UPDATED AT</th>
-                        <th>ACTIONS</th>
+                        <th class="text-left text-dark">NAME</th>
+                        <th class="text-dark">THUMBNAIL</th>
+                        <th class="text-dark">DOWNLOAD</th>
+                        <th class="text-dark">CREATED BY</th>
+                        <th class="text-dark">UPDATED AT</th>
+                        <th class="text-dark">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">
-                            BILL
-                            FRANKLIN
-                        </td>
-                        <td class="text-center">
-                            <img class="ecover-prev" src="{{asset('/front/image/2nd aug Funnel project pdf.png')}}" alt="">
-                        </td>
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Download
-                                </button>
-                                <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
-                                    <a class="dropdown-item" href="#">JPEG Format</a>
-                                    <a class="dropdown-item" href="#">PNG FORMAT</a>
+                    @if (count($ecovers) > 0)
+                        @php $counter = 1;  @endphp
+                        @foreach ($ecovers as $each_ecover)
+                        <tr>
+                            <td scope="row">{{ $each_ecover->title }}</td>
+                            <td class="text-center">
+                                <img class="ecover-prev" src="{{ $each_ecover->thumbnail }}" alt="">
+                            </td>
+                            <td class="text-center">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Download
+                                    </button>
+                                    <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
+                                        <a class="dropdown-item" href="#">JPEG Format</a>
+                                        <a class="dropdown-item" href="#">PNG FORMAT</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            May 04, 2021 03:15Am
-                        </td>
-                        <td class="text-center">
-                            May 04, 2021 03:15Am
-                        </td>
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Actions
-                                </button>
-                                <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
-                                    <a class="dropdown-item" href="#">Preview</a>
-                                    <a class="dropdown-item" href="#">Edit</a>
-                                    <a class="dropdown-item" href="#">Delete</a>
-                                    <a class="dropdown-item" href="#">View 3D</a>
+                            </td>
+                            <td class="text-center">{{ isset($each_ecover->createdBy)  ? $each_ecover->createdBy->name  : '' }}</td>
+                            <td class="text-center">{{ $each_ecover->updated_at->diffForHumans() }}</td>
+                            <td class="text-center">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
+                                        <a class="dropdown-item" href="#">Preview</a>
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" href="#">View 3D</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            BILL
-                            FRANKLIN
-                        </td>
-                        <td class="text-center">
-                            <img class="ecover-prev" src="{{asset('/front/image/2nd aug Funnel project pdf.png')}}" alt="">
-                        </td>
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Download
-                                </button>
-                                <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Disabled action</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            May 04, 2021 03:15Am
-                        </td>
-                        <td class="text-center">
-                            May 04, 2021 03:15Am
-                        </td>
-                        <td class="text-center">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Actions
-                                </button>
-                                <div class="dropdown-menu dropmenu-wrap" aria-labelledby="triggerId">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Disabled action</a>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                        @php $counter++;  @endphp
+                        @endforeach
+                    @else
+                        <tr class="odd">
+                            <td colspan="7" class="dataTables_empty" valign="top">No matching records found</td>
+                        </tr>  
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -154,13 +146,13 @@
                     <i class="flaticon-cancel icons"></i>
                 </button>
             </div>
-
             <div class="edit-forms-wrap">
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group mb-0">
                             <label for="">Name</label>
-                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" name="" id="" placeholder="">
+                            <input type="text" name="title" class="form-control input-bordered no-shadow slide-input" id="" placeholder="">
+                            <input type="hidden" type="text" value="flat_cover" name="type_value">
                             
                         </div>
                     </div>
@@ -192,33 +184,23 @@
             <div class="images-select-wrap">
                 <div class="row">
                     <div class="col-4">
-                        <div class="img-box">
+                        {{-- <input type="checkbox" id="flat_cover_1" style="display: none" />
+                        <label for="flat_cover_1" class="">
                             <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
+                        </label> --}}
+                        <input type="radio" id="flat_cover_1" name="flat_image[]" class="flat_image" style="display: none"  />
+                        <div class="img-box">
+                            <label for="flat_cover_1">
+                                <img src="{{asset('/front/image/place-holder.jpg')}}" alt="" for="flat_cover_1">
+                            </label>
                         </div>
                     </div>
                     <div class="col-4">
+                        <input type="radio" id="flat_cover_2"  name="flat_image[]" class="flat_image" style="display: none"  />
                         <div class="img-box">
-                            <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="img-box">
-                            <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="img-box">
-                            <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="img-box">
-                            <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="img-box">
-                            <img src="{{asset('/front/image/place-holder.jpg')}}" alt="">
+                            <label for="flat_cover_2">
+                                <img src="{{asset('/front/image/place-holder.jpg')}}" alt="" for="flat_cover_1">
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -229,9 +211,9 @@
                     <i class="flaticon-left-arrow icons"></i>
                     3D CD Cover
                 </button>
-                <button class="btn btn-purple-trans btn-edit-cover">
+                <a href="{{ route('editorPage') }}" class="btn btn-purple-trans btn-edit-cover">
                     Create
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -405,7 +387,12 @@
 
 
 
-@section('extra_js')  
+@section('extra_js') 
+
+<script> 
+
+</script>
+
 @endsection
 
 @endsection

@@ -60,43 +60,36 @@
                     <div class="tab-pane fade show active" id="v-pills-facebook" role="tabpanel"
                         aria-labelledby="v-pills-facebook-tab">
                         <h6 class="tab-title">Find Articles</h6>
-
-
-                        <form action="#" method="post" class="mt-5 w-100">
+                        <form action="{{ route('pullArticles') }}" method="post" class="mt-5 w-100">
+                            @csrf
                             <div class="form-group">
-                                <label for="">KEYWORD(S)</label>
-                                <input id="my-input" class="form-control tab-form no-shadow" type="text"
-                                    name="">
+                                <label for="keywords">KEYWORD(S)</label>
+                                <input id="my-input" class="form-control tab-form no-shadow" type="text" name="keywords" id="keywords" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="">REPOSITORY</label>
-                                <select id="my-select" class="form-control tab-form no-shadow" name="">
-                                    <option>PLR Repository</option>
+                                <label for="repository">REPOSITORY</label>
+                                <select id="my-select" class="form-control tab-form no-shadow" name="repository" id="repository" required>
+                                    <option value="plr_repository">PLR Repository</option>
                                 </select>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="">MATCH</label>
-                                <select id="my-select" class="form-control tab-form no-shadow" name="">
-                                    <option>All keywords</option>
+                                <label for="match">MATCH</label>
+                                <select id="my-select" class="form-control tab-form no-shadow" name="match" id="match" required>
+                                    <option value="all_keyword">All keywords</option>
                                 </select>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="">COLLECT</label>
-                                <select id="my-select" class="form-control tab-form no-shadow" name="">
-                                    <option>10</option>
-                                </select>
-
+                                <label for="collect">COLLECT</label>
+                                <input id="my-input" class="form-control tab-form no-shadow" type="number" name="collect" id="collect" required>
                             </div>
 
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find">
-                                    Find
-                                </button>
+                                <button class="btn btn-find" type="submit" id="find_article">Find</button>
                             </div>
                         </form>
                     </div>
@@ -290,12 +283,34 @@
 </div>
 
     @section('extra_div')
+
+        <!-- Modal -->
+        <div class="modal fade" id="ajaxCall">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row"> 
+                            <div class="col-lg-12">
+                                <p class="text-center">
+                                    Please Wait..................
+                                    <img src="{{ asset('assets/image/logo-old.svg') }}" alt="{{ env('APP_NAME') }}">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
     @endsection 
 
-
-
 @section('extra_js')  
+<script>
+    $(document).on('click', '#find_article', function(){
+        // $(this).html('Loading....').attr({'disabled':false});
+        $("#ajaxCall").modal('toggle');
+    })
+</script>
 @endsection
 
 @endsection

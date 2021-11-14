@@ -28,21 +28,38 @@ Route::get('/login', function () {
 });
 
 //ecoverCreator
-Route::get('/ecoverCreator', [EcoverController::class, 'ecoverCreator'])->name('ecoverCreator');
+Route::prefix('ecoverCreator')->group(function () {
+    Route::get('/', [EcoverController::class, 'ecoverCreator'])->name('ecoverCreator');
+    Route::post('/', [EcoverController::class, 'ecoverCreatorPost'])->name('ecoverCreatorPost'); //from image editor. final stage
+    Route::get('/editorPage', [EcoverController::class, 'editorPage'])->name('editorPage');
+});
 
 //ebookCreator
-Route::get('/ebookCreator', [EbookController::class, 'ebookCreator'])->name('ebookCreator');
+Route::prefix('ebookCreator')->group(function () {
+    Route::get('/', [EbookController::class, 'ebookCreator'])->name('ebookCreator');
+    Route::get('/article-result', [EbookController::class, 'returnedArticle'])->name('article-result');
+    Route::post('/pullArticles', [EbookController::class, 'pullArticlesForView'])->name('pullArticles');
+    Route::post('/ebookByArticleSelected', [EbookController::class, 'ebookByArticleSelected'])->name('ebookByArticleSelected');
+    Route::get('/ebookPageEditor', [EbookController::class, 'ebookPageEditor'])->name('ebookPageEditor');
+});
 
 //library
-Route::get('/library', [LibraryController::class, 'library'])->name('library');
+Route::prefix('library')->group(function () {
+    Route::get('/', [LibraryController::class, 'library'])->name('library');
+});
 
 //product
-Route::get('/product', [ProductController::class, 'product'])->name('product');
-Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class, 'product'])->name('product');
+    Route::get('/add', [ProductController::class, 'addProduct'])->name('addProduct');
+});
+
 
 //funnel
-Route::get('/funnel', [FunnelController::class, 'funnel'])->name('funnel');
-Route::get('/dfyFunnel', [FunnelController::class, 'dfyFunnel'])->name('dfyFunnel');
+Route::prefix('funnel')->group(function () {
+    Route::get('/', [FunnelController::class, 'funnel'])->name('funnel');
+    Route::get('/dfy', [FunnelController::class, 'dfyFunnel'])->name('dfyFunnel');
+});
 
 //others
 Route::get('/version', [UnlimitedVersionController::class, 'unlimitedVersion'])->name('unlimitedVersion');

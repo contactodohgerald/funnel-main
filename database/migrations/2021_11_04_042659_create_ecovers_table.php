@@ -17,6 +17,7 @@ class CreateEcoversTable extends Migration
             $table->id();
             $table->string('unique_id')->unique();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('dimension_id')->nullable();

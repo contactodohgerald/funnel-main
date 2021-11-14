@@ -18,8 +18,9 @@ class CreateEbooksTable extends Migration
             $table->string('unique_id')->unique();
             $table->unsignedBigInteger('created_by')->nullable();
 
-            $table->string('slug')->nullable();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+
             $table->string('type')->nullable();
             $table->string('author_name')->nullable();
             $table->string('cover_image')->nullable();
