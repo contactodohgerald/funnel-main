@@ -104,9 +104,6 @@
                                     name="">
                             </div>
 
-
-
-
                             <div class="d-flex justify-content-end bottom-btn-wrap">
                                 <button class="btn btn-find">
                                     Create
@@ -119,17 +116,11 @@
                         aria-labelledby="v-pills-linkedin-tab">
                         <h6 class="tab-title">Create from URL</h6>
 
-
-                        <form action="#" method="post" class="mt-5 w-100">
+                        <form action="{{ route('fetchArticleFromUrl') }}" method="post" class="mt-5 w-100">@csrf
                             <div class="form-group">
-
-                                <input id="my-input" class="form-control tab-form no-shadow" type="text"
-                                    name="" placeholder="Enter URL">
+                                <label for="site_url">Enter Webpage Url</label>
+                                <input id="site_url" class="form-control tab-form no-shadow" type="url" name="site_url" placeholder="Enter URL">
                             </div>
-
-
-
-
                             <div class="d-flex justify-content-end bottom-btn-wrap">
                                 <button class="btn btn-find">
                                     Create
@@ -140,28 +131,19 @@
                     <div class="tab-pane fade" id="v-pills-google" role="tabpanel"
                         aria-labelledby="v-pills-google-tab">
                         <h6 class="tab-title">Upload eBook</h6>
-
-
-                        <form action="#" method="post" class="mt-5 w-100">
+                        <form action="{{ route('articleUploads') }}" method="post" class="mt-5 w-100" enctype="multipart/form-data">@csrf
                             <div class="form-group">
-                                <label for="">EBOOK TITLE</label>
-                                <input id="my-input" class="form-control tab-form no-shadow" type="text"
-                                    name="">
+                                <label for="ebook_title">EBOOK TITLE</label>
+                                <input id="ebook_title" class="form-control tab-form no-shadow" type="text" name="ebook_title">
                             </div>
 
                             <div class="form-group">
-                                <label for="">EBOOK FILE</label>
-                                <input id="my-input" class="form-control tab-form no-shadow" type="file"
-                                    name="">
+                                <label for="ebook_file">EBOOK FILE</label>
+                                <input id="ebook_file" class="form-control tab-form no-shadow" type="file" name="ebook_file">
                             </div>
-
-
-
 
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find">
-                                    Create
-                                </button>
+                                <button class="btn btn-find" type="submit">Create</button>
                             </div>
                         </form>
                     </div>

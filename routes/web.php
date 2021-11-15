@@ -41,6 +41,12 @@ Route::prefix('ebookCreator')->group(function () {
     Route::post('/pullArticles', [EbookController::class, 'pullArticlesForView'])->name('pullArticles');
     Route::post('/ebookByArticleSelected', [EbookController::class, 'ebookByArticleSelected'])->name('ebookByArticleSelected');
     Route::get('/ebookPageEditor', [EbookController::class, 'ebookPageEditor'])->name('ebookPageEditor');
+    Route::post('/saveEbook', [EbookController::class, 'saveEbook'])->name('saveEbook');
+    Route::post('/fetchArticleFromUrl', [EbookController::class, 'fetchArticleFromUrl'])->name('fetchArticleFromUrl');
+    Route::get('/returnedUrlArticle', [EbookController::class, 'returnedUrlArticle'])->name('returnedUrlArticle');
+    Route::post('/articleUploads', [EbookController::class, 'articleUploads'])->name('articleUploads');
+    Route::get('/ebookUploadInterface', [EbookController::class, 'ebookUploadInterface'])->name('ebookUploadInterface');
+    Route::post('/saveUploadedEbook', [EbookController::class, 'saveUploadedEbook'])->name('saveUploadedEbook');
 });
 
 //library
