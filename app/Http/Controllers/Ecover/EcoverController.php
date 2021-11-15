@@ -94,7 +94,6 @@ class EcoverController extends Controller
                             'height' => $type_id->height
                         ]
                     ])->getSecurePath();
-                    //$uploadedFileUrl = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
                 }
 
                 $ecover = new Ecover();
@@ -107,9 +106,6 @@ class EcoverController extends Controller
 
                 Alert::success('Ecover Created Successfully', '');
                 return back();
-
-                return back()->with('success', 'Ecover Created Successfully!');
-                //return redirect('/ecoverCreator')->with('success', 'Ecover Created Successfully!');
             }
         }
     }
