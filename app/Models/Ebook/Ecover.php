@@ -64,25 +64,21 @@ class Ecover extends Model
     }
 
     //used in boot
-    protected static function getRelatedSlugs($slug, $id = 0)
-    {
+    protected static function getRelatedSlugs($slug, $id = 0){
         return static::select('slug')->where('slug', 'like', $slug . '%')
             ->where('id', '<>', $id)
             ->get();
     }
 
-    public function createdBy()
-    {
+    public function createdBy(){
         return $this->belongsTo('App\Models\User', 'created_by');
     }
 
-    public function dimension()
-    {
+    public function dimension(){
         return $this->belongsTo('App\Models\Ebook\Dimension', 'dimension_id');
     }
 
-    function getAllEcover($condition, $id = 'id', $desc = 'desc')
-    {
+    function getAllEcover($condition, $id = 'id', $desc = 'desc'){
         return Ecover::where($condition)->orderBy($id, $desc)->get();
     }
 
