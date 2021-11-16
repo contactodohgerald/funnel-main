@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/> --}}
 
     <link rel="stylesheet" href="{{asset('/front/css/style.css')}}">
     @yield('extra_css')
@@ -48,7 +48,20 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script> --}}
+
+    <script src="https://cdn.tiny.cloud/1/oupmzosv0yjyq9lj8l18t9rm9f0ok6viyprjdj5hz9de53w4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="/path/to/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#description'
+        });
+        tinymce.init({
+            selector: 'textarea#summary'
+        });
+    </script>
 
     <script src="{{asset('/front/js/main.js')}}"></script>
     

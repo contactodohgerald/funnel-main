@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '69c7d8a10079b57e93cec8fccfc9b44fd625a8c1',
+        'reference' => 'f5f347af19d43cf99cebce434c19f01562137bf2',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -427,7 +427,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '69c7d8a10079b57e93cec8fccfc9b44fd625a8c1',
+            'reference' => 'f5f347af19d43cf99cebce434c19f01562137bf2',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1317,6 +1317,15 @@
             'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
             'aliases' => array(),
             'reference' => 'b43b05cf43c1b6d849478965062b6ef73e223bb5',
+            'dev_requirement' => false,
+        ),
+        'tinymce/tinymce' => array(
+            'pretty_version' => '5.10.1',
+            'version' => '5.10.1.0',
+            'type' => 'component',
+            'install_path' => __DIR__ . '/../tinymce/tinymce',
+            'aliases' => array(),
+            'reference' => '23dbb5d218707805b74c9fe4f1e2525bcd21e689',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
