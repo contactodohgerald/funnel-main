@@ -21,7 +21,7 @@
                     <div class="editor-main x-pd-r">
                         <div class="label">GRABED RESULT FROM  <a target="_blank" href="{{ $url_articles['url'] }}">({{ $url_articles['url'] }})</a></div>
                         <div class="editor-wrap mb-4">
-                            <div id="editor" name="url_article">{{ $url_articles['html'] }}</div>
+                            <textarea name="url_article" id="description" rows="20">{!! $url_articles['html']  !!}</textarea>
                         </div>
                     </div>
                     <button class="btn btn-primary">Create Chapter</button>

@@ -15,6 +15,16 @@
         max-width: 100%;
         height: auto;
     }
+
+    .ecover-hold{
+        border: 3px solid #a7a5a5;
+    } 
+    
+    .ecover-hold:hover{
+        border: 3px solid #e27878;
+        cursor:move;
+        border-radius: 2%;
+    }
 </style>
 @endsection
 
@@ -52,21 +62,22 @@
                         </div>
                         <div class="col-3">
                             <div class="btn-flex align-item-left mt-4">
-                                <a class="btn btn-browse" data-fancybox data-src="#dialog-content">Browse</a>
-                                <a class="btn btn-danger">Reset</a>
+                                <a data-toggle="slide-in-wrap" data-target="#book-cover"
+                                class="btn btn-browse">Browse</a>
+                                <a class="btn btn-danger" id="reset-ecover">Reset</a>
                             </div>
                         </div>
                     </div>
                     <div class="editor-main x-pd-r">
                         <div class="label">DESCRIPTION (OPTIONAL)</div>
                         <div class="editor-wrap mb-4">
-                            <div id="editor" name="description"></div>
+                            <textarea id="description" rows="20" name="description" class="form-control no-shadow"></textarea>
                         </div>
                     </div>
                     <div class="editor-main x-pd-r">
                         <div class="label"> SUMMARY (OPTIONAL)</div>
                         <div class="editor-wrap mb-4">
-                            <div id="pop-editor" name="summary"></div>
+                            <textarea id="summary" rows="20" name="summary" class="form-control no-shadow"></textarea>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-2 mb-4 x-pd-r">
@@ -78,28 +89,37 @@
     </div>
 
     @section('extra_div')
-        <!-- Fancy Box -->
-        <div id="dialog-content" style="display:none;">
-            <h2>Ecovers </h2>
-            <div id="grouped-images-2" class="pb-16 flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-                <div class="row">
-                    @if (count($ecoverList) > 0)
-                    @foreach ($ecoverList as $each_ecover)
-                        <div class="col-lg-3 col-md-4">
-                            <a href="{{ $each_ecover->thumbnail }}">
-                                <img class="rounded" src="{{ $each_ecover->thumbnail }}" alt="{{ env('APP_NAME') }}" />
-                            </a>
-                            <button class="btn btn-primary">Select</button>
-                        </div>
-                    @endforeach                
-                @endif
+        <div id="book-cover" class="slide-in-wrap">
+            <div class="slide-in-inner">
+                <div class="slide-head">
+                    <div class="slide-details">
+                        <h5 class="title">Select Your Preferred eCover</h5>
+                    </div>
+                    <button class="btn btn-close" data-dismiss=".slide-in-wrap">
+                        <i class="flaticon-cancel icons"></i>
+                    </button>
+                </div>
+                <div class="images-select-wrap">
+                    <div class="row">
+                        @if (count($ecoverList) > 0)
+                            @foreach ($ecoverList as $each_ecover)
+                                <div class="col-3 m-1 ecover-hold">
+                                    <div class="img-box grab_ecover_url text-center">
+                                        <img src="{{ $each_ecover->thumbnail }}" alt="{{ env('APP_NAME') }}">
+                                        <input type="hidden" value="{{ $each_ecover->thumbnail }}" class="form-control">
+                                        <button class="btn btn-success" disabled>Tap Image To Select</button>
+                                    </div>
+                                </div>
+                            @endforeach                
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     @endsection 
 
 @section('extra_js')  
-
+    @include('front.js_files.eBookJsHandler')
 @endsection
 
 @endsection

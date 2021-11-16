@@ -5,6 +5,16 @@
 <style>
     #myTable td:hover{
         cursor:move;
+    } 
+    
+    .ecover-hold{
+        border: 3px solid #a7a5a5;
+    } 
+    
+    .ecover-hold:hover{
+        border: 3px solid #e27878;
+        cursor:move;
+        border-radius: 2%;
     }
     .rounded {
         border-radius: 0.25rem;
@@ -30,7 +40,7 @@
                         Back To Create eBook </a>
                     <button class="btn btn-gen-ebook ml-auto mr-3">Regenerate ebook</button>
                 </div>
-                <form action="{{ route('saveEbook') }}" method="POST">@csrf
+                <form action="{{ route('saveEbook') }}" method="POST" id="ebookValues">@csrf
                     <div class="row x-pd-r">
                         <div class="col-3">
                             <div class="form-group">
@@ -52,8 +62,9 @@
                         </div>
                         <div class="col-3">
                             <div class="btn-flex align-item-left mt-4">
-                                <a class="btn btn-browse" data-fancybox data-src="#dialog-content">Browse</a>
-                                <a class="btn btn-danger">Reset</a>
+                                <a data-toggle="slide-in-wrap" data-target="#book-cover"
+                                class="btn btn-browse">Browse</a>
+                                <a class="btn btn-danger" id="reset-ecover">Reset</a>
                             </div>
                         </div>
                     </div>
@@ -138,14 +149,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="header_font_text">TEXT</label>
-                                <input id="header_font_text" class="form-control no-shadow input-signin" type="text"  name="header_font_text">
+                                <input id="header_font_text" class="form-control no-shadow input-signin" type="text"  name="_font_text">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="header_font_link">LINK(OPTIONAL)</label>
-                                <input id="header_font_link" class="form-control no-shadow input-signin" type="text"
-                                    name="header_font_link">
+                                <input id="header_font_link" class="form-control no-shadow input-signin" type="text" name="_font_link">
                             </div> 
                         </div>
                     </div>
@@ -153,7 +163,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_align">ALIGN</label>
-                                <select id="header_font_align" class="form-control no-shadow input-signin" name="header_font_align">
+                                <select id="header_font_align" class="form-control no-shadow input-signin" name="_font_align">
                                     <option>Left</option>
                                     <option value="center">Center</option>
                                     <option value="right">Right</option>
@@ -163,14 +173,13 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_color">Color</label>
-                                <input id="header_font_color" name="header_font_color" class="form-control no-shadow input-signin" type="color"
-                                    name="">
+                                <input id="header_font_color" name="_font_color" class="form-control no-shadow input-signin" type="color">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_size">TEXT SIZE</label>
-                                <select id="header_font_size" name="header_font_size" class="form-control no-shadow input-signin">
+                                <select id="header_font_size" name="_font_size" class="form-control no-shadow input-signin">
                                     <option value="8">8px</option>
                                     <option value="9">9px</option>
                                     <option value="10">10px</option>
@@ -195,7 +204,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_family">FONT FAMILY</label>
-                                <select id="header_font_family" class="form-control no-shadow input-signin" name="header_font_family">
+                                <select id="header_font_family" class="form-control no-shadow input-signin" name="_font_family">
                                     <option value="">Please Select</option>
                                     @if (count($fonts_family) > 0)
                                         @foreach ($fonts_family as $each_family)
@@ -207,22 +216,20 @@
                         </div>
                     </div>
                     <div class="head-wrap">
-                        <div class="title">
-                            FOOTER SETTINGS
-                        </div>
+                        <div class="title">FOOTER SETTINGS</div>
                         <div class="line"></div>
                     </div>
                     <div class="row x-pd-r">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="footer_font_text">TEXT</label>
-                                <input id="footer_font_text" class="form-control no-shadow input-signin" type="text" name="footer_font_text">
+                                <input id="footer_font_text" class="form-control no-shadow input-signin" type="text" name="_font_text">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="footer_font_link">LINK(OPTIONAL)</label>
-                                <input id="footer_font_link" class="form-control no-shadow input-signin" type="text" name="footer_font_link">
+                                <input id="footer_font_link" class="form-control no-shadow input-signin" type="text" name="_font_link">
                             </div>
                         </div>
                     </div>
@@ -230,7 +237,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_align">ALIGN</label>
-                                <select id="footer_font_align" class="form-control no-shadow input-signin" name="footer_font_align">
+                                <select id="footer_font_align" class="form-control no-shadow input-signin" name="_font_align">
                                     <option>Left</option>
                                     <option value="center">Center</option>
                                     <option value="right">Right</option>
@@ -240,13 +247,13 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_color">Color</label>
-                                <input id="footer_font_color" class="form-control no-shadow input-signin" type="color"  name="footer_font_color">
+                                <input id="footer_font_color" class="form-control no-shadow input-signin" type="color"  name="_font_color">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_size">TEXT SIZE</label>
-                                <select id="footer_font_size" name="footer_font_size" class="form-control no-shadow input-signin">
+                                <select id="footer_font_size" name="_font_size" class="form-control no-shadow input-signin">
                                     <option value="8">8px</option>
                                     <option value="9">9px</option>
                                     <option value="10">10px</option>
@@ -271,7 +278,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_family">FONT FAMILY</label>
-                                <select id="footer_font_family" class="form-control no-shadow input-signin" name="footer_font_family">
+                                <select id="footer_font_family" class="form-control no-shadow input-signin" name="_font_family">
                                     <option value="">Please Select</option>
                                     @if (count($fonts_family) > 0)
                                         @foreach ($fonts_family as $each_family)
@@ -411,13 +418,13 @@
                     <div class="editor-main x-pd-r">
                         <div class="label">DESCRIPTION (OPTIONAL)</div>
                         <div class="editor-wrap mb-4">
-                            <div id="editor" name="description"></div>
+                            <textarea id="description" rows="20" name="description" class="form-control no-shadow"></textarea>
                         </div>
                     </div>
                     <div class="editor-main x-pd-r">
                         <div class="label"> SUMMARY (OPTIONAL)</div>
                         <div class="editor-wrap mb-4">
-                            <div id="pop-editor" name="summary"></div>
+                            <textarea id="summary" rows="20" name="summary" class="form-control no-shadow"></textarea>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end mt-2 mb-4 x-pd-r">
@@ -518,21 +525,30 @@
     </div>
 
     @section('extra_div')
-    <!-- Fancy Box -->
-    <div id="dialog-content" style="display:none;">
-        <h2>Ecovers </h2>
-        <div id="grouped-images-2" class="pb-16 flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-            <div class="row">
-                @if (count($ecoverList) > 0)
-                @foreach ($ecoverList as $each_ecover)
-                    <div class="col-lg-3 col-md-4">
-                        <a href="{{ $each_ecover->thumbnail }}">
-                            <img class="rounded" src="{{ $each_ecover->thumbnail }}" alt="{{ env('APP_NAME') }}" />
-                        </a>
-                        <button class="btn btn-primary">Select</button>
-                    </div>
-                @endforeach                
-            @endif
+    <div id="book-cover" class="slide-in-wrap">
+        <div class="slide-in-inner">
+            <div class="slide-head">
+                <div class="slide-details">
+                    <h5 class="title">Select Your Preferred eCover</h5>
+                </div>
+                <button class="btn btn-close" data-dismiss=".slide-in-wrap">
+                    <i class="flaticon-cancel icons"></i>
+                </button>
+            </div>
+            <div class="images-select-wrap">
+                <div class="row">
+                    @if (count($ecoverList) > 0)
+                        @foreach ($ecoverList as $each_ecover)
+                            <div class="col-3 m-1 ecover-hold">
+                                <div class="img-box grab_ecover_url text-center">
+                                    <img src="{{ $each_ecover->thumbnail }}" alt="{{ env('APP_NAME') }}">
+                                    <input type="hidden" value="{{ $each_ecover->thumbnail }}" class="form-control">
+                                    <button class="btn btn-success" disabled>Tap Image To Select</button>
+                                </div>
+                            </div>
+                        @endforeach                
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -541,13 +557,6 @@
 @section('extra_js')  
 
   @include('front.js_files.eBookJsHandler')
-
-  <script>
-       // #4 Grouped Images
-        Fancybox.bind("#grouped-images-2 a", {
-        groupAll: true,
-        });
-  </script>
 
 @endsection
 
