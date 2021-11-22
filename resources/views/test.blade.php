@@ -1,360 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 3</title>
+    {{-- <link rel="stylesheet" href="style.css" media="all" /> --}}
+    <style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dfy Funnel Conversion Booosting Tools</title>
-    <!-- Main Quill library -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+        @page {
+            header: page-header;
+            footer: page-footer;
+        }
+                    
+        @font-face {
+            font-family: Junge;
+            src: url(Junge-Regular.ttf);
+        }
 
-    <!-- Theme included stylesheets -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
+        a {
+            color: #001028;
+            text-decoration: none;
+        }
 
+        body {
+            font-family: Junge;
+            position: relative;
+            /* width: 21cm;   */
+            height: 29.7cm; 
+            margin: 0 auto; 
+            color: #001028;
+            background: #FFFFFF; 
+            font-size: 12px; 
+        }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+        .arrow {
+            margin-bottom: 4px;
+        }
 
-</head>
+        .arrow.back {
+            text-align: right;
+        }
 
-<body>
-    <div class="container-fluid px-0">
-        <div class="main-header">
-            <h5 class="head-title">
-                
-            </h5>
-            <div>
-                <nav class="nav align-items-center">
-                    <li class="nav-item">
-                        <div class="workspace-info-wrap">
-                            <div class="btn-drop workspace-info-inner" data-target="#workspace-dropdown">
-                                <img class="workspace-img" src="../assets/icons/dry-clean.svg" alt="workspace icon">
-                                <div>
-                                    <div class="title">Workspace</div>
-                                    <div class="workspace-name">New Business Link</div>
-                                </div>
-                            </div>
+        .inner-arrow {
+            padding-right: 10px;
+            height: 30px;
+            display: inline-block;
+            background-color: rgb(233, 125, 49);
+            text-align: center;
 
-                            <div class="workspace-options" id="workspace-dropdown">
-                                <div class="form-search-workspace">
-                                    <input type="text" class="form-control no-shadow" name="" id=""
-                                        placeholder="Find Workspace">
-                                    <button class="btn btn-search">
-                                        <i class="flaticon-search icons search-icon"></i>
-                                    </button>
-                                </div>
-                                <div class="workspace-list">
-                                    <div class="workspace-list-item">
-                                        <div class="workspace-name">
-                                            <img src="../assets/icons/dry-clean-gray.svg" alt="">
-                                            Kevin Hart
-                                        </div>
-                                        <div class="workspace-status">
-                                            Active
-                                            <i class="flaticon-check-mark icons"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="workspace-option-foot">
-                                    <a class="btn btn-block" href="workspace.html">
-                                        <i class="flaticon-plus icons icon-all-workspace"></i>
-                                        New workspace
-                                    </a>
-                                    <a class="btn btn-block mt-0" href="workspace.html">
-                                        <i class="flaticon-workspace icons icon-all-workspace"></i>
-                                        All Workspace
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item mr-2">
-                        <a class="nav-link" href="#">
-                            <i class="flaticon-bell icons notif-icon"></i>
-                        </a>
-                    </li>
+            line-height: 30px;
+            vertical-align: middle;
+        }
 
-                    <li class="nav-item">
-                        <div class="position-relative">
-                            <div class="btn-drop workspace-info-inner" data-target="#profile-dropdown">
-                                <img class="workspace-img" src="../assets/icons/dry-clean.svg" alt="workspace icon">
-                                <div>
-                                    <div class="title">Kevin Hart</div>
-                                    <div class="workspace-name">Super Administrator</div>
-                                </div>
-                            </div>
-                            <div class="profile-option" id="profile-dropdown">
-                                <div class="top-section">
-                                    <div class="user-info">
-                                        <div class="user-image">
-                                            <img class="user-icon" src="../assets/icons/profile-user.svg" alt="">
-                                        </div>
-                                        <div class="username-wrap">
-                                            <div class="name">
-                                                Ejem Austin
-                                            </div>
-                                            <div class="desc">
-                                                Account settings and more
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bottom-section">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">
-                                                <i class="flaticon-information-button icons dropdown-icons"></i>
-                                                <div class="nav drop-items">
-                                                    <span class="text">Support</span>
-                                                    <span class="desc">Contact Support</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#"><i
-                                                    class="flaticon-open-book icons dropdown-icons"></i>
-                                                <div class="nav drop-items">
-                                                    <span class="text">Knowledge base</span>
-                                                    <span class="desc">Everything explained here</span>
-                                                </div>
+        .arrow.back .inner-arrow {
+            background-color: rgb(233, 217, 49);
+            padding-right: 0;
+            padding-left: 10px;
+        }
 
-                                            </a>
-                                        </li>
+        .arrow:before,
+        .arrow:after {
+            content:'';
+            display: inline-block;
+            width: 0; height: 0;
+            border: 15px solid transparent;
+            vertical-align: middle;
+        }
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">
-                                                <i class="flaticon-exit icons dropdown-icons dropdown-icon-exit"></i>
-                                                <span class="text-logout">Log Me Out</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </nav>
-            </div>
-        </div>
+        .arrow:before {
+            border-top-color: rgb(233, 125, 49);
+            border-bottom-color: rgb(233, 125, 49);
+            border-right-color: rgb(233, 125, 49);
+        }
 
-        <div class="flex-main-wrap">
-            <div class="side-bar">
-                <nav class="nav flex-column nav-wrap">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">
-                            <i class="flaticon-menu icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Dashboard
-                            </span>
-                        </a>
-                    </li>
+        .arrow.back:before {
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: rgb(233, 217, 49);
+            border-left-color: transparent;
+        }
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="e-cover.html">
-                            <i class="flaticon-book-of-black-cover icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Ecover Creator
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="create-ebook-chapter.html">
-                            <i class="flaticon-book icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Create Ebook
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="library.html">
-                            <i class="flaticon-pile-of-paper icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                My Library
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.html">
-                            <i class="flaticon-block icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                My Product
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="funnel.html">
-                            <i class="flaticon-filter icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                My Funnels
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dfy-funnel.html">
-                            <i class="flaticon-funnel icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                DFY Funnels
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="version.html">
-                            <i class="flaticon-infinite-mathematical-symbol icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Unlimited Versions
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="conversion-tool.html">
-                            <i class="flaticon-paper-plane icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Conversion Tools
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="bonus-builder.html">
-                            <i class="flaticon-giftbox icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Bonus Builder
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="training.html">
-                            <i class="flaticon-graduation-hat icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Training
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="help.htm">
-                            <i class="flaticon-question icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Help
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="traffic-flow.html">
-                            <i class="flaticon-speedometer icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Automated Traffic Flow
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="licence.html">
-                            <i class="flaticon-bookmark-tag icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Reseller Licence
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="upgraded-member.html">
-                            <i class="flaticon-rocket icons side-nav-icon"></i>
-                            <span class="nav-text">
-                                Upgraded Membership
-                            </span>
-                        </a>
-                    </li>
+        .arrow:after {
+            border-left-color: rgb(233, 125, 49);
+        }
 
+        .arrow.back:after {
+            border-left-color: rgb(233, 217, 49);
+            border-top-color: rgb(233, 217, 49);
+            border-bottom-color: rgb(233, 217, 49);
+            border-right-color: transparent;
+        }
 
-                </nav>
-            </div>
-            <div class="content-section">
-                <div class="container-fluid custom-padding">
-                    <h5 class="head-title my-2">
-                        Dfy Funnel Conversion Booosting Tools
-                    </h5>
-                    <div class="btn-flex mt-4">
-                        <button class="btn btn-fb-tool">Facebook Tools</button>
-                        <button class="btn btn-social-proof">Social Proof Popups</button>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <div class="conversion-box">
-                                <h6 class="title">Facebook Pixel</h6>
-                                <div class="desc">
-                                    Add Your Facebook Tracking Code
-                                </div>
-                                <a class="link" href="#">Here in a step by step guide to get facebook pixel</a>
+        .arrow span { 
+            display: inline-block;
+            width: 80px; 
+            margin-right: 20px;
+            text-align: right; 
+        }
 
-                                <div class="form-group mt-4">
-                                    <label class="mb-0" for="my-textarea">FACEBOOK PIXEL CODE <i
-                                            class="flaticon-question icons "></i></label>
-                                    <textarea id="my-textarea" class="form-control" name="" rows="3"
-                                        placeholder="Enter Your Facebook Pixel Code Here"></textarea>
-                                </div>
-                                <button class="btn btn-find px-3">Save</button>
-                            </div>
+        .arrow.back span { 
+            margin-right: 0;
+            margin-left: 20px;
+            text-align: left; 
+        }
 
-                            <div class="conversion-box">
-                                <h6 class="title">Facebook Chat Widgets</h6>
-                                <div class="desc">
-                                    Add Your Facebook Customer Chat Plugins To Your Funnel
-                                </div>
-                                <a class="link" href="#">Setup and get a facebook customer chat plugins here</a>
+        h1 {
+            color: #5D6975;
+            font-family: Junge;
+            font-size: 1.0em;
+            line-height: 1.4em;
+            font-weight: normal;
+            text-align: center;
+            border-top: 1px solid #5D6975;
+            border-bottom: 1px solid #5D6975;
+            margin: 0 0 2em 0;
+        }
 
-                                <div class="form-group mt-4">
-                                    <label class="mb-0" for="my-textarea">CODE SNIPPET <i
-                                            class="flaticon-question icons "></i></label>
-                                    <textarea id="my-textarea" class="form-control" name="" rows="3"
-                                        placeholder="Enter Your JavaScript Code Snippet From Facebook"></textarea>
-                                </div>
-                                <button class="btn btn-find px-3">Save</button>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="conversion-box">
-                                <h6 class="title">Facebook Comment Pluggins</h6>
-                                <div class="desc">
-                                    Add Your Facebook Comment Plugins To Your Funnel
-                                </div>
-                                <a class="link" href="#">Get your facebook comment plugins here</a>
+        h1 small { 
+            /* font-size: 0.45em; */
+            font-size: 0.5em;
+            /* line-height: 1.5em; */
+            float: left;
+        } 
 
-                                <div class="form-group mt-4">
-                                    <label class="mb-0" for="my-textarea">CODE SDR <i
-                                            class="flaticon-question icons "></i></label>
-                                    <textarea id="my-textarea" class="form-control" name="" rows="3"
-                                        placeholder="Enter Your Javascript SDR Code From Facebook"></textarea>
-                                </div>
+        h1 small:last-child { 
+            float: right;
+        } 
 
-                                <div class="form-group mt-3">
-                                    <label class="mb-0" for="my-textarea">CODE SNIPPET <i
-                                            class="flaticon-question icons "></i></label>
-                                    <textarea id="my-textarea" class="form-control" name="" rows="3"
-                                        placeholder="Enter Your JavaScript Code Snippet From Facebook"></textarea>
-                                </div>
-                                <button class="btn btn-find px-3">Save</button>
-                            </div>
-                        </div>
-                    </div>
+        #project { 
+            float: left; 
+        }
 
-                </div>
-            </div>
-        </div>
+        #company { 
+            float: right; 
+        }
+
+        #details {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            color: #5D6975;
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid #C1CED9;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+    </style>
+  </head>
+  <body>
+    <htmlpageheader name="page-header">
+        {{-- Your Header Content {PAGENO} --}}
+        <div style="text-align: right;">Your Header Content</div>
+    </htmlpageheader>
+    
+    <main>
+      {{-- <table>
+        <thead>
+          <tr>
+            <th class="service">SERVICE</th>
+            <th class="desc">DESCRIPTION</th>
+            <th>PRICE</th>
+            <th>QTY</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service">Design</td>
+            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">26</td>
+            <td class="total">$1,040.00</td>
+          </tr>
+          <tr>
+            <td class="service">Development</td>
+            <td class="desc">Developing a Content Management System-based Website</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">80</td>
+            <td class="total">$3,200.00</td>
+          </tr>
+          <tr>
+            <td class="service">SEO</td>
+            <td class="desc">Optimize the site for search engines (SEO)</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">20</td>
+            <td class="total">$800.00</td>
+          </tr>
+          <tr>
+            <td class="service">Training</td>
+            <td class="desc">Initial training sessions for staff responsible for uploading web content</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">4</td>
+            <td class="total">$160.00</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="sub">SUBTOTAL</td>
+            <td class="sub total">$5,200.00</td>
+          </tr>
+          <tr>
+            <td colspan="4">TAX 25%</td>
+            <td class="total">$1,300.00</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="grand total">GRAND TOTAL</td>
+            <td class="grand total">$6,500.00</td>
+          </tr>
+        </tbody>
+      </table> --}}
+      <div style="text-align: justify;">
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio sed facere autem vitae obcaecati deserunt, praesentium exercitationem cum voluptate sint molestiae. Laudantium, cupiditate. Eveniet praesentium fuga temporibus officia enim?Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque cum minus voluptatibus saepe facere delectus esse repellendus dolor autem! At libero vel fugiat, reprehenderit quas recusandae nisi praesentium quibusdam!
+        </p>
+        <p style="font-size: 1.0em;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic praesentium possimus consequatur. Recusandae molestias necessitatibus ex dolorum nostrum asperiores. Optio omnis accusamus iure quam aliquam quisquam porro tempora aut dolore?
+        </p>
     </div>
+        
+        
+        
+        
+    </main>
+    <htmlpagefooter name="page-footer">
+        Your Footer Content
+    </htmlpagefooter>
+  </body>
 
-
-
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="../assets/js/main.js"></script>
-
-    <script src="../assets/js/editor-config.js"></script>
-</body>
-
+ 
 </html>

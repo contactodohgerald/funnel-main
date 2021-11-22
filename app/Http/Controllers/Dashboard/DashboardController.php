@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use PDF;
 
 class DashboardController extends Controller
 {
@@ -14,6 +15,18 @@ class DashboardController extends Controller
      */
     public function landing()
     {
+        // $data = [
+        //     'title' => 'Welcome to ItSolutionStuff.com',
+        //     'date' => date('m/d/Y')
+        // ];
+
+        // $pdf = PDF::loadView('myPDF', $data);
+        // return $pdf->download('itsolutionstuff.pdf');
+
+        // $pdf = PDF::loadView('pdf.document', $data);
+        // return $pdf->stream('document.pdf');
+
+        //$mpdf = new \Mpdf\Mpdf();
         return view('front.pages.landing');
     }
 

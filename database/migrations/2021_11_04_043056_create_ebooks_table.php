@@ -21,14 +21,42 @@ class CreateEbooksTable extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
 
-            $table->string('type')->nullable();
-            $table->string('author_name')->nullable();
+            $table->string('type')->nullable(); //Article, dfy etc
+
+            $table->string('ebook_author')->nullable();
             $table->string('cover_image')->nullable();
             $table->string('body_font_family')->nullable();
             $table->string('body_font_size')->nullable();
             $table->string('dark_mode')->default('false');
-            $table->string('page_numbering')->nullable(); //total number of numbering
+
+            $table->string('page_numbering')->nullable(); //in_header or in_footer
             $table->string('numbering_format')->nullable();
+
+            $table->string('header_text')->nullable();
+            $table->string('header_text_link')->nullable();
+            $table->string('header_text_align')->nullable();
+            $table->string('header_text_color')->nullable();
+            $table->string('header_font_size')->nullable();
+            $table->string('header_font_family')->nullable();
+
+            $table->string('footer_text')->nullable();
+            $table->string('footer_text_link')->nullable();
+            $table->string('footer_text_align')->nullable();
+            $table->string('footer_text_color')->nullable();
+            $table->string('footer_font_size')->nullable();
+            $table->string('footer_font_family')->nullable();
+
+            $table->string('title_text_align')->nullable();
+            $table->string('title_text_color')->nullable();
+            $table->string('title_font_size')->nullable();
+
+            $table->string('subheader_text')->nullable();
+            $table->string('subheader_text_link')->nullable();
+            $table->string('subheader_text_align')->nullable();
+            $table->string('subheader_text_color')->nullable();
+            $table->string('subheader_font_size')->nullable();
+            $table->string('subheader_font_family')->nullable();
+
             $table->longText('description')->nullable();
             $table->longText('summary')->nullable();
 

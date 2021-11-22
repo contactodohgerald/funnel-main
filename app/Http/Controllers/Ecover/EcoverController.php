@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Traits\Generics;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class EcoverController extends Controller
 {
@@ -30,6 +31,7 @@ class EcoverController extends Controller
      */
     public function ecoverCreator()
     {
+
         //get list of the available ecovers
         $ecovers = $this->ecover->getAllEcover([
             ['status', 'true'],

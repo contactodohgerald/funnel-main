@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
+        //Barryvdh\DomPDF\ServiceProvider::class,
+        Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
 
     ],
 
@@ -230,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
+        //'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class,
 
     ],
 

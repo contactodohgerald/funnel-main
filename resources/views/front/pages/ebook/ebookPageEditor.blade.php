@@ -53,8 +53,7 @@
                                             <div class="p-2 flex-grow-1 bd-highlight"><span class="text-dark">Author:</span> <span class="font-weight-bold">{{ $each_articles['author'] }}</span>
                                                 <input type="hidden" name="author[]" value="{{ $each_articles['author'] }}">
                                             </div>
-                                        </div>
-                                        
+                                        </div>    
                                     </div>
                                 </td>
                                 {{-- <td>
