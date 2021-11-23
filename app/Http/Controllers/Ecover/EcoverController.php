@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Traits\Generics;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class EcoverController extends Controller
 {
@@ -30,6 +31,7 @@ class EcoverController extends Controller
      */
     public function ecoverCreator()
     {
+
         //get list of the available ecovers
         $ecovers = $this->ecover->getAllEcover([
             ['status', 'true'],
@@ -94,7 +96,6 @@ class EcoverController extends Controller
                             'height' => $type_id->height
                         ]
                     ])->getSecurePath();
-                    //$uploadedFileUrl = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
                 }
 
                 $ecover = new Ecover();
@@ -107,9 +108,6 @@ class EcoverController extends Controller
 
                 Alert::success('Ecover Created Successfully', '');
                 return back();
-
-                return back()->with('success', 'Ecover Created Successfully!');
-                //return redirect('/ecoverCreator')->with('success', 'Ecover Created Successfully!');
             }
         }
     }

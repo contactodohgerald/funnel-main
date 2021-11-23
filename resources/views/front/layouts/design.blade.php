@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $pageTitle }}</title>
     <!-- Main Quill library -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    {{-- <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script> --}}
 
     <!-- Theme included stylesheets -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    {{-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -63,9 +63,12 @@
         });
     </script>
 
+    <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
+
     <script src="{{asset('/front/js/main.js')}}"></script>
     
-    <script src="/front/js/editor-config.js"></script>
+    {{-- <script src="/front/js/editor-config.js"></script> --}}
+    
     @include('sweetalert::alert')
     @yield('extra_js')
 </body>

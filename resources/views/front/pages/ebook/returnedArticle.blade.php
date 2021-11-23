@@ -19,13 +19,13 @@
             <div> --}}
                 <form id="live-search" action="" class="styled" method="post">
                     
-                        <input type="text" class="form-control w-100" id="filter" value="" style="border-radius: 1rem; box-shadow: 1px 2px 3px #b7b3b3, -2px 1px 3px #b7b3b3;" />
+                        <input type="text" class="form-control w-100" id="filter" value="{{ $keywords }}" style="border-radius: 1rem; box-shadow: 1px 2px 3px #b7b3b3, -2px 1px 3px #b7b3b3;" />
                         <span id="filter-count"></span>
                     
                 </form>
             {{-- </div>
         </div> --}}
-        <form action="{{ route('ebookByArticleSelected') }}" method="POST">@csrf
+        <form action="{{ route('articleSelected') }}" method="POST">@csrf
             <table class="table no-border table-ecover mt-3">
                 <thead>
                     <tr>

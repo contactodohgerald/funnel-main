@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Ebook\ArticleEbookController;
 use App\Http\Controllers\Ebook\EbookController;
+use App\Http\Controllers\Ebook\PDFSetUpController;
 use App\Http\Controllers\Ecover\EcoverController;
 use App\Http\Controllers\Funnel\FunnelController;
 use App\Http\Controllers\Library\LibraryController;
@@ -37,11 +39,13 @@ Route::prefix('ecoverCreator')->group(function () {
 //ebookCreator
 Route::prefix('ebookCreator')->group(function () {
     Route::get('/', [EbookController::class, 'ebookCreator'])->name('ebookCreator');
-    Route::get('/article-result', [EbookController::class, 'returnedArticle'])->name('article-result');
-    Route::post('/pullArticles', [EbookController::class, 'pullArticlesForView'])->name('pullArticles');
-    Route::post('/ebookByArticleSelected', [EbookController::class, 'ebookByArticleSelected'])->name('ebookByArticleSelected');
-    Route::get('/ebookPageEditor', [EbookController::class, 'ebookPageEditor'])->name('ebookPageEditor');
-    Route::post('/saveEbook', [EbookController::class, 'saveEbook'])->name('saveEbook');
+    Route::get('/article-result', [ArticleEbookController::class, 'returnedArticle'])->name('returnedArticle');
+    Route::post('/pullArticles', [ArticleEbookController::class, 'pullArticles'])->name('pullArticles');
+    Route::post('/articleSelected', [ArticleEbookController::class, 'articleSelected'])->name('articleSelected');
+    Route::get('/eBookPDFCreate', [PDFSetUpController::class, 'eBookPDFCreate'])->name('eBookPDFCreate');
+
+    Route::post('/saveEbook', [PDFSetUpController::class, 'saveEbook'])->name('saveEbook');
+    Route::post('/regenerateEbook', [PDFSetUpController::class, 'regenerateEbook'])->name('regenerateEbook');
     Route::post('/fetchArticleFromUrl', [EbookController::class, 'fetchArticleFromUrl'])->name('fetchArticleFromUrl');
     Route::get('/returnedUrlArticle', [EbookController::class, 'returnedUrlArticle'])->name('returnedUrlArticle');
     Route::post('/articleUploads', [EbookController::class, 'articleUploads'])->name('articleUploads');

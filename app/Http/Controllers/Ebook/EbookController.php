@@ -19,79 +19,38 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class EbookController extends Controller
 {
 
     use Generics, EbookHandler;
 
-    function __construct(Ecover $ecover){
+    function __construct(Ecover $ecover)
+    {
         $this->ecover = $ecover;
-     }
+    }
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function ebookCreator(){
+    public function ebookCreator()
+    {
         return view('front.pages.ebook.ebookCreator');
     }
 
-    public function returnedArticle(){
-        $result = Session::get('result');
-
-        return view('front.pages.ebook.articlesHoldPage', compact('result'));
-    }
-
-    public function ebookByArticleSelected(Request $request){
-        $data = $request->all();
-        foreach ($data['articleChecked'] as $key => $val) {
-            if (!empty($val)) {
-
-                $selectedArticles[] = [
-                    'title' => $data['title'][$key],
-                    'description' => $data['description'][$key],
-                    'author' => $data['author'][$key],
-                ];
-            }
-        }
-
-        Session::put('selectedArticles', $selectedArticles);
-        return redirect()->route('ebookPageEditor');
-    }
-
-    public function ebookPageEditor(){
-
-        $fonts_family = collect($this->fetchFontFamily())->all();
-
-        $selectedArticles = Session::get('selectedArticles');
-
-        $dfyChapters = [];
-
-        $ecoverList = $this->ecover->getAllEcover([
-            ['status', 'true'],
-            ['created_by', 1],
-        ]);
-
-        $view = [
-            'selectedArticles'=>$selectedArticles,
-            'fonts_family'=>$fonts_family,
-            'dfyChapters'=>$dfyChapters,
-            'ecoverList'=>$ecoverList,
-        ];
-
-        return view('front.pages.ebook.eBookPDFCreate', $view);
-    }
-
-    public function returnedUrlArticle(){
+    public function returnedUrlArticle()
+    {
 
         $url_articles = Session::get('url_articles');
 
         return view('front.pages.ebook.urlArticleHolder', compact('url_articles'));
     }
 
-    public function ebookUploadInterface(){
+    public function ebookUploadInterface()
+    {
 
         $ebookFileUrl = Session::get('ebookFileUrl');
         $ebookTitle = Session::get('ebookTitle');
@@ -102,9 +61,9 @@ class EbookController extends Controller
 
 
         $view = [
-            'ebookFileUrl'=>$ebookFileUrl,
-            'ebookTitle'=>$ebookTitle,
-            'ecoverList'=>$ecoverList,
+            'ebookFileUrl' => $ebookFileUrl,
+            'ebookTitle' => $ebookTitle,
+            'ecoverList' => $ecoverList,
         ];
 
         return view('front.pages.ebook.uploadEbook', $view);
@@ -215,6 +174,7 @@ class EbookController extends Controller
     }
 
     public function fetchArticleFromUrl(Request $request){
+
         $data = $request->all();
         $rules = array(
             'site_url' => 'required',
@@ -227,18 +187,18 @@ class EbookController extends Controller
 
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
-        }else{
+        } else {
 
             $url_articles = collect($this->fetchArticlesFromUrl($data['site_url']))->all();
 
             Session::put('url_articles', $url_articles);
 
             return redirect()->route('returnedUrlArticle');
-
         }
     }
 
-    public function articleUploads(Request $request){
+    public function articleUploads(Request $request)
+    {
         $data = $request->all();
         $rules = array(
             'ebook_title' => 'required',
@@ -251,7 +211,7 @@ class EbookController extends Controller
 
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
-        }else{
+        } else {
 
             $thumbnailUrl = 'default.jpg';
             // addind the image to cloudinary
@@ -267,11 +227,11 @@ class EbookController extends Controller
             Session::put('ebookTitle', $data['ebook_title']);
 
             return redirect()->route('ebookUploadInterface');
-
         }
     }
 
-    public function saveUploadedEbook(Request $request){
+    public function saveUploadedEbook(Request $request)
+    {
         $data = $request->all();
 
         $rules = array(
@@ -287,7 +247,7 @@ class EbookController extends Controller
 
         if ($validator->fails()) {
             return back()->withInput()->withErrors($validator);
-        }else{
+        } else {
 
             $ebook = new Ebook();
             $ebook->unique_id = $this->createUniqueId('ebooks', 'unique_id');
@@ -304,7 +264,6 @@ class EbookController extends Controller
 
             //return back()->with('success', 'Ebook Was Created Successfully!');
         }
-
     }
 
     /**

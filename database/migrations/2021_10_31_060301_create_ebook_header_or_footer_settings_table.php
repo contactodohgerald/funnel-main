@@ -18,7 +18,7 @@ class CreateEbookHeaderOrFooterSettingsTable extends Migration
             $table->string('unique_id')->unique();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('ebook_id');
-            $table->string('type')->nullable();
+            $table->string('type')->nullable(); //header settings, pg goes to footer, and vise versa
             $table->text('text')->nullable();
             $table->string('link')->nullable();
             $table->string('align')->nullable();
