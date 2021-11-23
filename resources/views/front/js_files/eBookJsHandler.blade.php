@@ -81,6 +81,18 @@
     });
 
     $(document).on('click', '.browse_modal', function(){
-    $("#ajaxCall").modal('toggle');
-})
+        $("#ajaxCall").modal('toggle');
+    })
+
+    $(document).on('click', '.grab_ecover_url', function(){
+            let url = $(this).find('input').val();
+
+            $("#ebook_cover_image").val(url);
+
+            $("#book-cover").removeClass('show');
+        }) 
+        
+        $(document).on('click', '#reset-ecover', function(){
+            $("#ebook_cover_image").val("");
+        })
 </script>

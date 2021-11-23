@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find" type="submit" id="find_article">Find</button>
+                                <button class="btn btn-find bring_out_gif" type="submit" id="find_article">Find</button>
                             </div>
                         </form>
                     </div>
@@ -122,9 +122,7 @@
                                 <input id="site_url" class="form-control tab-form no-shadow" type="url" name="site_url" placeholder="Enter URL">
                             </div>
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find">
-                                    Create
-                                </button>
+                                <button class="btn btn-find bring_out_gif">Grab Url</button>
                             </div>
                         </form>
                     </div>
@@ -143,7 +141,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end bottom-btn-wrap">
-                                <button class="btn btn-find" type="submit">Create</button>
+                                <button class="btn btn-find bring_out_gif" type="submit">Create</button>
                             </div>
                         </form>
                     </div>
@@ -272,11 +270,9 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="row"> 
-                            <div class="col-lg-12">
-                                <p class="text-center">
-                                    Please Wait..................
-                                    <img src="{{ asset('assets/image/logo-old.svg') }}" alt="{{ env('APP_NAME') }}">
-                                </p>
+                            <div class="col-lg-12 text-center" style="height: 40px">
+                                <span>Please Wait..................</span>
+                                <img style="height: 100%;" src="{{ asset('loader.gif') }}" alt="{{ env('APP_NAME') }}">
                             </div>
                         </div>
                     </div>
@@ -288,7 +284,7 @@
 
 @section('extra_js')  
 <script>
-    $(document).on('click', '#find_article', function(){
+    $(document).on('click', '.bring_out_gif', function(){
         // $(this).html('Loading....').attr({'disabled':false});
         $("#ajaxCall").modal('toggle');
     })

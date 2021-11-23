@@ -5,6 +5,16 @@
 <style>
     #myTable td:hover{
         cursor:move;
+    } 
+    
+    .ecover-hold{
+        border: 3px solid #a7a5a5;
+    } 
+    
+    .ecover-hold:hover{
+        border: 3px solid #e27878;
+        cursor:move;
+        border-radius: 2%;
     }
     .rounded {
         border-radius: 0.25rem;
@@ -34,6 +44,7 @@
                     <button class="btn btn-gen-ebook ml-auto mr-3" id="regenerateBtn">Regenerate ebook</button>
                 </div>
                 <form action="{{ route('regenerateEbook') }}" method="POST" id="setupForm">@csrf
+
                     <div class="row x-pd-r">
                         <div class="col-3">
                             <div class="form-group">
@@ -55,10 +66,13 @@
                         </div>
                         <div class="col-3">
                             <div class="btn-flex align-item-left mt-4">
-                                {{-- <a class="btn btn-browse" data-fancybox data-src="#dialog-content">Browse</a> --}}
+
+                                <a data-toggle="slide-in-wrap" data-target="#book-cover"
+                                class="btn btn-browse">Browse</a>
+                                <a class="btn btn-danger" id="reset-ecover">Reset</a>
+                                
                                 <a class="btn btn-browse" data-toggle="slide-in-wrap" data-toggle="modal" data-target="#media-modal">Browse</a> 
                                 
-                                <a class="btn btn-danger ml-1 text-white">Reset</a>
                             </div>
                         </div>
                     </div>
@@ -1471,8 +1485,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="header_text_link">LINK(OPTIONAL)</label>
-                                <input id="header_text_link" class="form-control no-shadow input-signin" type="text"
-                                    name="header_text_link">
+                                <input id="header_text_link" class="form-control no-shadow input-signin" type="text" name="header_text_link">
                             </div> 
                         </div>
                     </div>
@@ -1496,7 +1509,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_size">TEXT SIZE</label>
-                                <select id="header_font_size" name="header_font_size" class="form-control no-shadow input-signin">
+                                <select id="header_font_size" name="_font_size" class="form-control no-shadow input-signin">
                                     <option value="8">8px</option>
                                     <option value="9">9px</option>
                                     <option value="10">10px</option>
@@ -1521,7 +1534,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="header_font_family">FONT FAMILY</label>
-                                <select id="header_font_family" class="form-control no-shadow input-signin" name="header_font_family">
+                                <select id="header_font_family" class="form-control no-shadow input-signin" name="_font_family">
                                     <option value="">Please Select</option>
                                     <option value="Roboto">Roboto</option>
                                     <option value="Open Sans" selected>Open Sans</option>
@@ -2853,9 +2866,7 @@
                         </div>
                     </div>
                     <div class="head-wrap">
-                        <div class="title">
-                            FOOTER SETTINGS
-                        </div>
+                        <div class="title">FOOTER SETTINGS</div>
                         <div class="line"></div>
                     </div>
                     <div class="row x-pd-r">
@@ -2892,7 +2903,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_size">TEXT SIZE</label>
-                                <select id="footer_font_size" name="footer_font_size" class="form-control no-shadow input-signin">
+                                <select id="footer_font_size" name="_font_size" class="form-control no-shadow input-signin">
                                     <option value="8">8px</option>
                                     <option value="9">9px</option>
                                     <option value="10">10px</option>
@@ -2917,7 +2928,7 @@
                         <div class="col-3">
                             <div class="form-group">
                                 <label for="footer_font_family">FONT FAMILY</label>
-                                <select id="footer_font_family" class="form-control no-shadow input-signin" name="footer_font_family">
+                                <select id="footer_font_family" class="form-control no-shadow input-signin" name="_font_family">
                                     <option value="">Please Select</option>
                                     <option value="Roboto">Roboto</option>
                                     <option value="Open Sans" selected>Open Sans</option>
@@ -5809,6 +5820,32 @@
 
     @section('extra_div')
 
+    <div id="book-cover" class="slide-in-wrap">
+        <div class="slide-in-inner">
+            <div class="slide-head">
+                <div class="slide-details">
+                    <h5 class="title">Select Your Preferred eCover</h5>
+                </div>
+                <button class="btn btn-close" data-dismiss=".slide-in-wrap">
+                    <i class="flaticon-cancel icons"></i>
+                </button>
+            </div>
+            <div class="images-select-wrap">
+                <div class="row">
+                    @if (count($ecoverList) > 0)
+                        @foreach ($ecoverList as $each_ecover)
+                            <div class="col-3 m-1 ecover-hold">
+                                <div class="img-box grab_ecover_url text-center">
+                                    <img src="{{ $each_ecover->thumbnail }}" alt="{{ env('APP_NAME') }}">
+                                    <input type="hidden" value="{{ $each_ecover->thumbnail }}" class="form-control">
+                                    <button class="btn btn-success" disabled>Tap Image To Select</button>
+                                </div>
+                            </div>
+                        @endforeach                
+                    @endif
+                </div>
+
+
     <div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -5888,6 +5925,7 @@
                     </div>
                 @endforeach                
             @endif
+
             </div>
         </div>
     </div> --}}
